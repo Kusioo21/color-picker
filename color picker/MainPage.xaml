@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="color_picker.MainPage"
+             Title="Color Picker">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        
+        <Label 
+            Text="Wybierz kolor:"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="20" />
+
+        
+        <HorizontalStackLayout>
+            <Label Text="R:" />
+            <Slider x:Name="RedSlider" Minimum="0" Maximum="255" ValueChanged="OnSliderValueChanged" WidthRequest="200"/>
+            <Label x:Name="RedValueLabel" Text="0" WidthRequest="40" HorizontalOptions="End"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="G:" />
+            <Slider x:Name="GreenSlider" Minimum="0" Maximum="255" ValueChanged="OnSliderValueChanged" WidthRequest="200"/>
+            <Label x:Name="GreenValueLabel" Text="0" WidthRequest="40" HorizontalOptions="End"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="B:" />
+            <Slider x:Name="BlueSlider" Minimum="0" Maximum="255" ValueChanged="OnSliderValueChanged" WidthRequest="200"/>
+            <Label x:Name="BlueValueLabel" Text="0" WidthRequest="40" HorizontalOptions="End"/>
+        </HorizontalStackLayout>
+
+        <BoxView x:Name="ColorDisplay" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
+
+       
+        <Label x:Name="HexLabel" TextColor="Black" FontSize="24" HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnHexLabelTapped"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        
+        <Entry x:Name="HexEntry" Placeholder="Enter HEX color (#RRGGBB)" TextChanged="OnHexEntryTextChanged" />
+
+        
+        <Button Text="Losowy Kolor" Clicked="OnRandomColorClicked" />
+        <Button Text="Reset Kolorów" Clicked="OnResetColorClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>
